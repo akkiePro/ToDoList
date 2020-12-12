@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ToDo App</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{%static 'todo/bs/css/flatly.min.css' %}" />
+		<link rel="stylesheet" href="{%static 'todo/styles.css' %}" />
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+		<div class="container-fluid" id="wrapper">
+
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-4" id="content">
+					<h2>REGISTRATION DETAILS...</h2>
+
+					<form action="{% url 'register' %}" method="POST" role="form">
+						{% csrf_token %}
+						<div class="form-group">
+							<div class="input-group">
+                                <input type="text" name="first_name" class="form-control" placeholder="First Name" aria-label="Todo" aria-describedby="add-btn" maxlength="40" required="">
+                                <input type="text" name="last_name" class="form-control" placeholder="Last Name" aria-label="Todo" aria-describedby="add-btn" maxlength="40" required="">
+                                <input type="text" name="username" class="form-control" placeholder="User Name" aria-label="Todo" aria-describedby="add-btn" maxlength="40" required="">
+                                <input type="email" name="email" class="form-control" placeholder="E-Mail" aria-label="Todo" aria-describedby="add-btn" maxlength="40" required="">
+                                <input type="password" name="password1" class="form-control" placeholder="Password" aria-label="Todo" aria-describedby="add-btn" maxlength="40" required="">
+                                <input type="password" name="password2" class="form-control" placeholder="Confirm Password" aria-label="Todo" aria-describedby="add-btn" maxlength="40" required="">
+							</div>
+						</div>
+
+                        <span class="input-group-btn" align="center">
+                            <button type="submit" class="btn btn-default" id="add-btn">REGISTER</button>
+						</span>
+					</form>
+					<center>
+						<a href="{% url 'login_redirect' %}">Log-In here</a>
+					</center>
+				</div>
+			</div>
+
+			<footer>
+				<div class="row pad">
+					<div class="col-lg-12 text-center">
+						<strong>ToDo App</strong>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<!-- jQuery -->
+		<script src="./bs/js/jquery.min.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="./bs/js/bootstrap.min.js"></script>
+	</body>
+</html>
